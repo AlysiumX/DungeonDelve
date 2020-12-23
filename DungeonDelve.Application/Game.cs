@@ -7,24 +7,30 @@ namespace DungeonDelve.Application
 {
 	public class Game
 	{
-		private readonly BattleSystem _BattleSystem;
-		private readonly List<Entity> _Players;
-		public Game( BattleSystem battleSystem )
+		private readonly BattleSystem _battleSystem;
+		private readonly EntityManager _entityManager;
+		private readonly List<Entity> _players;
+		public Game( BattleSystem battleSystem, EntityManager entityManager )
 		{
-			_BattleSystem = battleSystem;
-			_Players = CreatePlayers();
+			_battleSystem = battleSystem;
+			_entityManager = entityManager;
+			_players = CreatePlayers();
 		}
 
 		private List<Entity> CreatePlayers()
 		{
 			//TODO : Implement character creation.
-			throw new NotImplementedException();
+			var players = new List<Entity>();
+			var warrior = _entityManager.GetEntityByName( "Warrior" );
+			players.Add( warrior );
+
+			return players;
 		}
 
 		public void Start()
 		{
 			//Note : Right now we are jumping straight into battle but in the future we would have the battle system check for random encounters.
-			_BattleSystem.StartBattleWithPlayers( _Players );
+			_battleSystem.StartBattleWithPlayers( _players );
 		}
 
 	}

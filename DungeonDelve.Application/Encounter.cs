@@ -7,11 +7,13 @@ namespace DungeonDelve.Application
 {
 	public class Encounter
 	{
+		private readonly MessageLog _messageLog;
 		private readonly EntityManager _entityManager;
 		private IEnumerable<Entity> _enemies;
 
-		public Encounter( EntityManager entityManager )
+		public Encounter( MessageLog messageLog, EntityManager entityManager )
 		{
+			_messageLog = messageLog;
 			_entityManager = entityManager;
 		}
 
@@ -22,7 +24,7 @@ namespace DungeonDelve.Application
 
 		public void Start()
 		{
-			throw new NotImplementedException();
+			_messageLog.Add( "Encounter Started..." );
 		}
 
 		private IEnumerable<Entity> GetRandomEnemies()
