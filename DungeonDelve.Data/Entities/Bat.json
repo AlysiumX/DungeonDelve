@@ -2,5 +2,5 @@
 	"Name": "Bat",
 	"Type": "Enemy",
 	"Health": "30",
-	"Speed": "2"
+	"Speed": "3"
 }

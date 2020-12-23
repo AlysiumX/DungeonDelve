@@ -19,7 +19,7 @@ namespace DungeonDelve.Application
 		{
 			_messageLog.Add( "Battle Started..." );
 			_encounter.LoadEnemies();
-			_encounter.Start();
+			_encounter.StartWithPlayers( players );
 		}
 	}
 }
