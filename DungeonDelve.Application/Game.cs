@@ -22,7 +22,12 @@ namespace DungeonDelve.Application
 			//TODO : Implement character creation.
 			var players = new List<Entity>();
 			var warrior = _entityManager.GetEntityByName( "Warrior" );
-			players.Add( warrior );
+			var rogue = _entityManager.GetEntityByName( "Rogue" );
+			var ranger = _entityManager.GetEntityByName( "Ranger" );
+			var mage = _entityManager.GetEntityByName( "Mage" );
+			var priest = _entityManager.GetEntityByName( "Priest" );
+
+			players.AddRange( new List<Entity>() { warrior, rogue, ranger, mage, priest } );
 
 			return players;
 		}

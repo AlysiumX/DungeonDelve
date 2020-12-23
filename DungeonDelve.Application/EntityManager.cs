@@ -18,7 +18,7 @@ namespace DungeonDelve.Application
 		public IEnumerable<Entity> GetRandomEnemiesXTimes( int enemyCount )
 		{
 			var enemiesList = _LoadedEntities.Where( x => x.Type == EntityType.Enemy ).ToList();
-			for( var i = 0; i<enemyCount; i++ )
+			for( var i = 0; i < enemyCount; i++ )
 			{
 				Random random = new Random();
 				int number = random.Next( 0, enemiesList.Count() );
