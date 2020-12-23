@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DungeonDelve.Application\DungeonDelve.Application.csproj" />
     <ProjectReference Include="..\DungeonDelve.Framework\DungeonDelve.Framework.csproj" />
-    <ProjectReference Include="..\DungeonDelve.Logic\DungeonDelve.Application.csproj" />
   </ItemGroup>
 
 </Project>
