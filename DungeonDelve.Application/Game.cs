@@ -17,6 +17,7 @@ namespace DungeonDelve.Application
 
 		private List<Entity> CreatePlayers()
 		{
+			//TODO : Implement character creation.
 			throw new NotImplementedException();
 		}
 
