@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonDelve.ConsoleUI", "DungeonDelve.ConsoleUI\DungeonDelve.ConsoleUI.csproj", "{AA843D99-0810-4982-BB62-B4F6152E6B80}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonDelve.Application", "DungeonDelve.Logic\DungeonDelve.Application.csproj", "{1DD59DC7-A9B0-40EC-9A36-8AF78F8D957A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonDelve.Application", "DungeonDelve.Application\DungeonDelve.Application.csproj", "{1DD59DC7-A9B0-40EC-9A36-8AF78F8D957A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DungeonDelve.Data", "DungeonDelve.Data\DungeonDelve.Data.csproj", "{7A04455D-BCB2-4B2F-988F-5C52B795A690}"
 EndProject

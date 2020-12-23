@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DungeonDelve.Application\DungeonDelve.Application.csproj" />
     <ProjectReference Include="..\DungeonDelve.Core\DungeonDelve.Core.csproj" />
-    <ProjectReference Include="..\DungeonDelve.Logic\DungeonDelve.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
