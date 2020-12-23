@@ -7,15 +7,17 @@ namespace DungeonDelve.Application
 {
 	public class BattleSystem
 	{
+		private readonly MessageLog _messageLog;
 		private readonly Encounter _encounter;
-		public BattleSystem( Encounter encounter )
+		public BattleSystem( MessageLog messageLog, Encounter encounter )
 		{
+			_messageLog = messageLog;
 			_encounter = encounter;
 		}
 
 		public void StartBattleWithPlayers( IEnumerable<Entity> players )
 		{
-			Console.WriteLine( "Battle Started..." );
+			_messageLog.Add( "Battle Started..." );
 			_encounter.LoadEnemies();
 			_encounter.Start();
 		}

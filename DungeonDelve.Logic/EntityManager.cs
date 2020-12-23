@@ -28,6 +28,9 @@ namespace DungeonDelve.Application
 
 		public Entity GetEntityByName( string entityName )
 		{
+			if( !_LoadedEntities.Where( x => x.Name == entityName ).Any() )
+				throw new Exception( $"No entity found for the name {entityName}" );
+
 			return _LoadedEntities.Where( x => x.Name == entityName ).FirstOrDefault();
 		}
 	}

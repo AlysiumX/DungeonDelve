@@ -24,6 +24,7 @@ namespace DungeonDelve.Framework
 		{
 			_container.RegisterType<IEntityLoader, EntityLoader>();
 			_container.RegisterSingleton<EntityManager>();
+			_container.RegisterSingleton<MessageLog>();
 			_container.RegisterSingleton<Game>();
 		}
 	}
