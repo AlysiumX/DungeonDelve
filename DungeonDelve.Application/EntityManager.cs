@@ -10,9 +10,11 @@ namespace DungeonDelve.Application
 	public class EntityManager
 	{
 		private readonly IEnumerable<Entity> _LoadedEntities;
-		public EntityManager( IEntityLoader entityLoader )
+		private readonly Random _random;
+		public EntityManager( IEntityLoader entityLoader, Random random )
 		{
 			_LoadedEntities = entityLoader.RetrieveEntities();
+			_random = random;
 		}
 
 		public IEnumerable<Entity> GetRandomEnemiesXTimes( int enemyCount )
@@ -20,8 +22,7 @@ namespace DungeonDelve.Application
 			var enemiesList = _LoadedEntities.Where( x => x.Type == EntityType.Enemy ).ToList();
 			for( var i = 0; i < enemyCount; i++ )
 			{
-				Random random = new Random();
-				int number = random.Next( 0, enemiesList.Count() );
+				int number = _random.Next( 0, enemiesList.Count() );
 				yield return enemiesList[number];
 			}
 		}

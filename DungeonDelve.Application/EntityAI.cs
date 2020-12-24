@@ -11,6 +11,12 @@ namespace DungeonDelve.Application
 	/// </summary>
 	public class EntityAI
 	{
+		private readonly Random _random;
+		public EntityAI( Random random )
+		{
+			_random = random;
+		}
+
 		public Ability GetEntityAction( Entity entity )
 		{
 			var abilityToUse = GetAbilityIfUsagePercentageSucceeds( entity );
@@ -22,12 +28,10 @@ namespace DungeonDelve.Application
 
 		private Ability GetAbilityIfUsagePercentageSucceeds( Entity entity )
 		{
-			var random = new Random();
-
 			var abilities = entity.Abilities.ToList();
 			foreach( var ability in abilities.OrderBy( x => x.PriorityOrder ) )
 			{
-				int chance = random.Next( 1, 100 );
+				int chance = _random.Next( 1, 100 );
 
 				if( chance <= ability.UsagePercentage )
 					return ability;
@@ -39,9 +43,7 @@ namespace DungeonDelve.Application
 
 		public Entity SetTargetPlayer( IEnumerable<Entity> players )
 		{
-			var random = new Random();
-
-			int playerNumber = random.Next( 0, players.Count() );
+			int playerNumber = _random.Next( 0, players.Count() );
 
 			var playerList = players.ToList();
 			return playerList[playerNumber];
