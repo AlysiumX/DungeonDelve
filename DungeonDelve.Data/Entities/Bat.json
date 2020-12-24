@@ -1,6 +1,21 @@
 {
 	"Name": "Bat",
 	"Type": "Enemy",
-	"Health": "30",
-	"Speed": "3"
+	"BaseDamageValue" : "5",
+	"Stats": {
+		"Health": "30",
+		"MovementSpeed": "3",
+		"AttackSpeed": "3"
+	},
+	"Abilities": [
+		{
+			"Name": "Screech",
+			"PriorityOrder": "0",
+			"AffectedStats": "AttackSpeed",
+			"AffectedStatsValue": "1",
+			"CanBeAppliedXTimes": "1",
+			"UsagePercentage": "33",
+			"DamageValue": "0"
+		}
+	]
 }

@@ -1,6 +1,9 @@
 {
 	"Name": "Ranger",
 	"Type": "Player",
-	"Health": "70",
-	"Speed": "3"
+	"Stats": {
+		"Health": "70",
+		"AttackSpeed": "3",
+		"MovementSpeed": "2"
+	}
 }

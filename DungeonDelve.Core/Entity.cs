@@ -8,7 +8,10 @@ namespace DungeonDelve.Core
 	{
 		public string Name { get; set; }
 		public EntityType Type { get; set; }
-		public int Health { get; set; }
-		public int Speed { get; set; }
+		public int BaseDamageValue { get; set; }
+		public Stats Stats { get; set; }
+		public IEnumerable<Ability> Abilities { get; set; }
+
+		//TODO : Equipment.
 	}
 }
