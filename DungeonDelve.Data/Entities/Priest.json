@@ -1,6 +1,9 @@
 {
 	"Name": "Priest",
 	"Type": "Player",
-	"Health": "60",
-	"Speed": "2"
+	"Stats": {
+		"Health": "60",
+		"AttackSpeed": "2",
+		"MovementSpeed": "2"
+	}
 }

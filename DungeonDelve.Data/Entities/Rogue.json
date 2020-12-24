@@ -1,6 +1,9 @@
 {
 	"Name": "Rogue",
 	"Type": "Player",
-	"Health": "80",
-	"Speed": "4"
+	"Stats": {
+		"Health": "80",
+		"AttackSpeed": "4",
+		"MovementSpeed": "2"
+	}
 }

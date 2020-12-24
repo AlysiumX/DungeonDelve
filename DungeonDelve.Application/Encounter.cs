@@ -13,13 +13,15 @@ namespace DungeonDelve.Application
 		private readonly MessageLog _messageLog;
 		private readonly EntityManager _entityManager;
 		private readonly TurnSystem _turnSystem;
+		private readonly EntityAI _entityAI;
 		private IEnumerable<Entity> _enemies;
 
-		public Encounter( MessageLog messageLog, EntityManager entityManager, TurnSystem turnSystem )
+		public Encounter( MessageLog messageLog, EntityManager entityManager, TurnSystem turnSystem, EntityAI entityAI )
 		{
 			_messageLog = messageLog;
 			_entityManager = entityManager;
 			_turnSystem = turnSystem;
+			_entityAI = entityAI;
 		}
 
 		public void LoadEnemies()
@@ -41,16 +43,24 @@ namespace DungeonDelve.Application
 
 			_turnSystem.AddEntities( allEntities );
 
-			await Task.Run( () => StartCombatLoop() );
+			await Task.Run( () => StartCombatLoopWithPlayers( players ) );
 		}
 
-		private void StartCombatLoop()
+		private void StartCombatLoopWithPlayers( IEnumerable<Entity> players )
 		{
-			while( _enemies.Where( x => x.Health > 0 ).Any() )
+			while( _enemies.Where( x => x.Stats.Health > 0 ).Any() )
 			{
 				var entityForCurrentTurn = _turnSystem.GetEntityForCurrentTurn();
-				//Execute enemy AI or Allow Player turn.
 				_messageLog.Add( $"Current turn is for {entityForCurrentTurn.Name}" );
+
+				//TODO : This should probably be moved to a sub class of entity.
+				if( entityForCurrentTurn.Type == EntityType.Enemy )
+				{
+					var abilityToUse = _entityAI.GetEntityAction( entityForCurrentTurn );
+					var target = _entityAI.SetTargetPlayer( players );
+					_messageLog.Add( $"{entityForCurrentTurn.Name} uses {abilityToUse.Name} on {target.Name}" );
+				}
+
 				Thread.Sleep( 1000 );
 				_turnSystem.GoToNextTurn();
 			}

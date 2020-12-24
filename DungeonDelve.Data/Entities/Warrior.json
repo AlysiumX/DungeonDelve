@@ -1,6 +1,9 @@
 {
 	"Name": "Warrior",
 	"Type": "Player",
-	"Health": "100",
-	"Speed": "1"
+	"Stats": {
+		"Health": "100",
+		"AttackSpeed": "1",
+		"MovementSpeed": "1"
+	}
 }

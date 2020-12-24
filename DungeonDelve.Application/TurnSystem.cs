@@ -13,7 +13,7 @@ namespace DungeonDelve.Application
 
 		public void AddEntities( IEnumerable<Entity> entities )
 		{
-			EntitiesInTurnOrder = entities.OrderByDescending( x => x.Speed ).ToList();
+			EntitiesInTurnOrder = entities.OrderByDescending( x => x.Stats.AttackSpeed ).ToList();
 		}
 
 		public Entity GetEntityForCurrentTurn()
